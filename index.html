@@ -62,6 +62,15 @@ this.stream.point(point.x, point.y);
 .style("opacity","1");    // line opacity
                     
         var originANDdestination = [featuresdata[0], featuresdata[19]];
+       
+       var begend = g.selectAll(".loc")
+.data(originANDdestination)
+.enter()
+.append("circle", ".loc")
+.attr("r", 5)  // origin/destination circle radius
+.style("fill", "#e892a2")  // origin/destination color
+.style("opacity", "1");  // origin/destination opacity
+                    
         
         var text = g.selectAll("text")
 .data(originANDdestination)
