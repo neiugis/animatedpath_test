@@ -43,7 +43,16 @@ var point = map.latLngToLayerPoint(new L.LatLng(y, x));
 this.stream.point(point.x, point.y);
         } 
         
-        
+           var toLine = d3.svg.line()
+            .interpolate("linear")
+            .x(function(d) {
+                return applyLatLngToLayer(d).x
+            })
+            .y(function(d) {
+                return applyLatLngToLayer(d).y
+            });
+       
+       
         var ptFeatures = g.selectAll("circle")
 .data(featuresdata)
 .enter()
